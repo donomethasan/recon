@@ -1,0 +1,104 @@
+Recon Command
+
+
+Sub enemuration: 
+
+amass +httprobe+ subjack
+
+amass enum --passive -d target.com  > target.txt ; cat target.txt |  httprobe -t 20000 > livetarget.txt ; subjack -w livetarget.txt -t 100 -timeout 30 -ssl -c /root/work/src/github.com/haccer/subjack/fingerprints.json -v 3
+
+
+subfinder+httprobe+subjack
+
+subfinder -d target.com > target.txt ; cat target.txt |  httprobe -t 20000 > livetarget.txt ; subjack -w livetarget.txt -t 100 -timeout 30 -ssl -c /root/work/src/github.com/haccer/subjack/fingerprints.json -v 3
+
+
+amass+massdns
+
+amass enum --passive -d  target.com > target.txt ; massdns -r /root/massdns/lists/resolvers.txt -t A -o S target.txt -w livetarget.txt
+
+
+httprobe
+
+cat livetarget.txt| httprobe -p http:81 -p http:43 -p http:8080 -p https:8443 -p https:8081 -p https://8090 -p https://8070
+
+
+
+Screenshoot Taker:
+
+sudo webscreenshot -i /root/recon/livetarget.txt -o /root/screenshot/livetarget/
+
+
+Altdns:
+
+altdns -i /root/recon/livetarget.txt -o /root/recon/data_output -w /root/recon/words.txt -r -s results_target.txt
+
+
+
+
+Content Bruteforcing:
+
+Disearch command:
+
+python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/fuzz.txt
+
+
+python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/personal.txt
+
+python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/dirsearch-wordlist.txt
+
+python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/all.txt
+
+
+ffuf -w /root/Wordlists/all.txt -u https://target/FUZZ
+
+
+
+Parameter Bruteforcing:
+
+./arjun.py --urls targets.txt --get
+
+./arjun.py -u https://api.example.com/endpoint --get --stable
+
+./arjun.py -u https://api.example.com/endpoint --get -o result.json
+
+./arjun.py -u https://api.example.com/endpoint --get --include '{"api_key":"xxxxx"}'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
