@@ -1,0 +1,3 @@
+cd /root/github-search && /usr/bin/python3 ./github-subdomains.py -t 87ddaffd8096299a077dd50d8308aad3ce8249db -d target.com
+
+cd /root/github-search && /usr/bin/python3 ./github-endpoints.py -t 87ddaffd8096299a077dd50d8308aad3ce8249db   -d target.com -e
