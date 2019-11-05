@@ -45,14 +45,14 @@ Content Bruteforcing:
 
 Disearch command:
 
-python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/fuzz.txt
+cd /root/dirsearch ; python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/fuzz.txt
 
 
-python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/personal.txt
+cd /root/dirsearch ; python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/personal.txt
 
-python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/dirsearch-wordlist.txt
+cd /root/dirsearch ; python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/dirsearch-wordlist.txt
 
-python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/all.txt
+cd /root/dirsearch ; python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/all.txt
 
 
 ffuf -w /root/Wordlists/personal.txt -u https://target/FUZZ -mc 200,301,302 -D 
@@ -61,10 +61,10 @@ ffuf -w /root/Wordlists/personal.txt -u https://target/FUZZ -mc 200,301,302 -D
 
 Parameter Bruteforcing:
 
-cd Arjun ; ./arjun.py --urls targets.txt --get
+cd /root/Arjun ; ./arjun.py --urls targets.txt --get
 
-cd Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --stable
+ccd /root/Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --stable
 
-cd Arjun ; ./arjun.py -u https://api.example.com/endpoint --get -o result.json
+cd /root/Arjun ; ./arjun.py -u https://api.example.com/endpoint --get -o result.json
 
-cd Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --include '{"api_key":"xxxxx"}'
+cd /root/Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --include '{"api_key":"xxxxx"}'
