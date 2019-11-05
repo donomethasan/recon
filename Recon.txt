@@ -12,6 +12,11 @@ subfinder+httprobe+subjack
 
 subfinder -d target.com > target.txt ; cat target.txt |  httprobe -t 20000 > livetarget.txt ; subjack -w livetarget.txt -t 100 -timeout 30 -ssl -c /root/work/src/github.com/haccer/subjack/fingerprints.json -v 3
 
+amass+httprobe+altdns
+
+amass enum --passive -d target.com > /root/recon/target.txt ; cat /root/recon/target.txt | httprobe -t 20000 > /root/recon/livetarget.txt ; altdns -i /root/recon/livetarget.txt -o /root/recon/data_output -w /root/recon/words.txt -r -s /root/recon/results_target.txt 
+
+
 
 amass+massdns
 
@@ -63,42 +68,3 @@ Parameter Bruteforcing:
 ./arjun.py -u https://api.example.com/endpoint --get -o result.json
 
 ./arjun.py -u https://api.example.com/endpoint --get --include '{"api_key":"xxxxx"}'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
