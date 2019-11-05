@@ -61,10 +61,10 @@ ffuf -w /root/Wordlists/all.txt -u https://target/FUZZ
 
 Parameter Bruteforcing:
 
-./arjun.py --urls targets.txt --get
+cd Arjun ; ./arjun.py --urls targets.txt --get
 
-./arjun.py -u https://api.example.com/endpoint --get --stable
+cd Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --stable
 
-./arjun.py -u https://api.example.com/endpoint --get -o result.json
+cd Arjun ; ./arjun.py -u https://api.example.com/endpoint --get -o result.json
 
-./arjun.py -u https://api.example.com/endpoint --get --include '{"api_key":"xxxxx"}'
+cd Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --include '{"api_key":"xxxxx"}'
