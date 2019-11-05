@@ -55,7 +55,7 @@ python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordli
 python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/all.txt
 
 
-ffuf -w /root/Wordlists/all.txt -u https://target/FUZZ
+ffuf -w /root/Wordlists/personal.txt -u https://target/FUZZ -mc 200,301,302 -D 
 
 
 
