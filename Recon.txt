@@ -5,12 +5,12 @@ Sub enemuration:
 
 amass +httprobe+ subjack
 
-amass enum --passive -d target.com  > target.txt ; cat target.txt |  httprobe -t 20000 > livetarget.txt ; subjack -w livetarget.txt -t 100 -timeout 30 -ssl -c /root/work/src/github.com/haccer/subjack/fingerprints.json -v 3
+amass enum --passive -d target.com  > /root/recon/target.txt ; cat /root/recon/target.txt |  httprobe -t 20000 > /root/recon/livetarget.txt ; subjack -w /root/recon/livetarget.txt -t 100 -timeout 30 -ssl -c /root/work/src/github.com/haccer/subjack/fingerprints.json -v 3
 
 
 subfinder+httprobe+subjack
 
-subfinder -d target.com > target.txt ; cat target.txt |  httprobe -t 20000 > livetarget.txt ; subjack -w livetarget.txt -t 100 -timeout 30 -ssl -c /root/work/src/github.com/haccer/subjack/fingerprints.json -v 3
+subfinder -d target.com > /root/recon/target.txt ; cat /root/recon/target.txt |  httprobe -t 20000 > /root/recon/livetarget.txt ; subjack -w /root/recon/livetarget.txt -t 100 -timeout 30 -ssl -c /root/work/src/github.com/haccer/subjack/fingerprints.json -v 3
 
 amass+httprobe+altdns
 
@@ -20,7 +20,7 @@ amass enum --passive -d target.com > /root/recon/target.txt ; cat /root/recon/ta
 
 amass+massdns
 
-amass enum --passive -d  target.com > target.txt ; massdns -r /root/massdns/lists/resolvers.txt -t A -o S target.txt -w livetarget.txt
+amass enum --passive -d  target.com > /root/recon/target.txt ; massdns -r /root/massdns/lists/resolvers.txt -t A -o S /root/recon/target.txt -w /root/recon/livetarget.txt
 
 
 httprobe
@@ -36,7 +36,7 @@ sudo webscreenshot -i /root/recon/livetarget.txt -o /root/screenshot/livetarget/
 
 Altdns:
 
-altdns -i /root/recon/livetarget.txt -o /root/recon/data_output -w /root/recon/words.txt -r -s results_target.txt
+altdns -i /root/recon/livetarget.txt -o /root/recon/data_output -w /root/recon/words.txt -r -s /root/recon/results_target.txt
 
 
 
@@ -63,7 +63,7 @@ Parameter Bruteforcing:
 
 cd /root/Arjun ; ./arjun.py --urls targets.txt --get
 
-ccd /root/Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --stable
+cd /root/Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --stable
 
 cd /root/Arjun ; ./arjun.py -u https://api.example.com/endpoint --get -o result.json
 
