@@ -20,7 +20,7 @@ amass enum -brute -w /root/wordlist/subdomains.txt -d example.com|httpx -status-
 
 httpx
 
-cat output.txt|httpx -status-code -content-length -title -store-response -threads 100 -json | wc 
+cat output.txt|httpx -status-code -content-length -title -store-response -threads 100 
 
 echo 173.0.84.0/24 | httpx 
 
@@ -38,30 +38,34 @@ sudo webscreenshot -i /root/recon/livetarget.txt -o /root/screenshot/livetarget/
 
 Altdns:
 
-altdns -i /root/recon/livetarget.txt -o /root/recon/data_output -w /root/recon/words.txt -r -s /root/recon/results_target.txt
+altdns -i /root/recon/livetarget.txt -o /root/recon/data_output -w /root/wordlist/words.txt -r -s
+/root/recon/results_target.txt
 
+Ip range Crawling:
 
+https://bgp.he.net/
+
+Reverse ip lookup
+
+https://viewdns.info
 
 
 Content Bruteforcing:
 
 Disearch command:
 
-cd /root/dirsearch ; python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/fuzz.txt
+cd /root/dirsearch ; python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/wordlist/SecLists/Discovery/Web-Content/raft-large-words.txt	
 
 
-cd /root/dirsearch ; python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/personal.txt
-
-cd /root/dirsearch ; python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/dirsearch-wordlist.txt
-
-cd /root/dirsearch ; python3 dirsearch.py -u http://target.com -e html,js,php,asp,sql -w /root/Wordlists/all.txt
-
-
-ffuf -w /root/Wordlists/personal.txt -u https://target/FUZZ -mc 200,301,302 -D 
+ffuf -w /root/wordlist/SecLists/Discovery/Web-Content/raft-large-words.txt -u https://target.com/FUZZ -mc 200,301,302 -D 
 
 
 
-Parameter Bruteforcing:
+Parameter+Endpoint Bruteforcing:
+
+gospider -s "https://example.com/" -o output -c 10 -d 1 --other-source --include-subs
+
+gospider -s "https://example.com/" -o output -c 10 -d 1 --other-source --burp burp_req.txt
 
 cd /root/Arjun ; ./arjun.py --urls targets.txt --get
 
