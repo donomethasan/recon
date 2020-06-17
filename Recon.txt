@@ -3,30 +3,32 @@ Recon Command
 
 Sub enemuration: 
 
-amass +httprobe+ subjack
+subfinder
 
-amass enum --passive -d target.com  > /root/recon/target.txt ; cat /root/recon/target.txt |  httprobe -t 20000 > /root/recon/livetarget.txt ; subjack -w /root/recon/livetarget.txt -t 100 -timeout 30 -ssl -c /root/work/src/github.com/haccer/subjack/fingerprints.json -v 3
+subfinder+httpx
 
-
-subfinder+httprobe+subjack
-
-subfinder -d target.com > /root/recon/target.txt ; cat /root/recon/target.txt |  httprobe -t 20000 > /root/recon/livetarget.txt ; subjack -w /root/recon/livetarget.txt -t 100 -timeout 30 -ssl -c /root/work/src/github.com/haccer/subjack/fingerprints.json -v 3
-
-amass+httprobe+altdns
-
-amass enum --passive -d target.com > /root/recon/target.txt ; cat /root/recon/target.txt | httprobe -t 20000 > /root/recon/livetarget.txt ; altdns -i /root/recon/livetarget.txt -o /root/recon/data_output -w /root/recon/words.txt -r -s /root/recon/results_target.txt 
+subfinder -d target.com > /root/recon/target.txt ; cat /root/recon/target.txt |  httpx -threads 100 > /root/recon/livetarget.txt
 
 
+shuffledns
 
-amass+massdns
+shuffledns -d target.com -w /root/wordlist/subdomains.txt -r /root/wordlist/resolvers.txt -o /root/recon/dnsoutput.txt
 
-amass enum --passive -d  target.com > /root/recon/target.txt ; massdns -r /root/massdns/lists/resolvers.txt -t A -o S /root/recon/target.txt -w /root/recon/livetarget.txt
+Amass+httpx
 
+amass enum -brute -w /root/wordlist/subdomains.txt -d example.com|httpx -status-code -title
 
-httprobe
+httpx
 
-cat livetarget.txt| httprobe -p http:81 -p http:43 -p http:8080 -p https:8443 -p https:8081 -p https://8090 -p https://8070
+cat output.txt|httpx -status-code -content-length -title -store-response -threads 100 -json | wc 
 
+echo 173.0.84.0/24 | httpx 
+
+Cname+A record Check
+
+cat /root/recon/domains.txt | dnsprobe
+
+dnsprobe -l /root/recon/domains.txt -r CNAME
 
 
 Screenshoot Taker:
