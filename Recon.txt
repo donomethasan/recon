@@ -80,7 +80,7 @@ Github Secret Finding:
 
 cd gitGraber ; python3 gitGraber.py -k /root/wordlists/keywords.txt -q target -s
 
-export GITROB_ACCESS_TOKEN=2ae2d220e57a6af9d59f86e098e545819b94f9e6
+export GITROB_ACCESS_TOKEN=
 
 
 gitrob target
