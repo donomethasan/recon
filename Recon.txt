@@ -74,3 +74,8 @@ cd /root/Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --stable
 cd /root/Arjun ; ./arjun.py -u https://api.example.com/endpoint --get -o result.json
 
 cd /root/Arjun ; ./arjun.py -u https://api.example.com/endpoint --get --include '{"api_key":"xxxxx"}'
+
+
+Github Secret Finding:
+
+cd gitGraber ; python3 gitGraber.py -k /root/wordlists/keywords.txt -q target -s
