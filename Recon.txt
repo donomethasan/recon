@@ -84,3 +84,13 @@ export GITROB_ACCESS_TOKEN=
 
 
 gitrob target
+
+Javascript Scanner:
+
+cd secretfinder ; python3 SecretFinder.py -i https://target.com/ -e -o cli 
+
+python3 /usr/local/bin/linkfinder.py -i https://secure.soundcloud.com -o cli
+
+
+
+
