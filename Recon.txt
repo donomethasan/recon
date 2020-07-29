@@ -89,7 +89,9 @@ Javascript Scanner:
 
 cd secretfinder ; python3 SecretFinder.py -i https://target.com/ -e -o cli 
 
-python3 /usr/local/bin/linkfinder.py -i https://secure.soundcloud.com -o cli
+python3 /usr/local/bin/linkfinder.py -i https:// -o cli
+
+ cd pathbrute ; ./pathBrute -s exploitdb -u http://testphp.vulnweb.com/ -v -i -n 20
 
 
 
