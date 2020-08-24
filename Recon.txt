@@ -96,8 +96,7 @@ python3 /usr/local/bin/linkfinder.py -i https:// -o cli
 
 Nuclei+Subfinder:
 
-subfinder -d target.com -silent | httpx -silent | nuclei -t /root/nuclei-templates/{technologies,files,generic-detections,security-misconfiguration
-,panels,tokens,vulnerabilities,cves,subdomain-takeover} -v -o result
+subfinder -d target.com -silent|httpx -silent|nuclei -t /root/nuclei-templates/technologies -t /root/nuclei-templates/files -t /root/nuclei-templates/cves -t /root/nuclei-templates/tokens -t /root/nuclei-templates/generic-detections -t /root/nuclei-templates/security-misconfiguration -t /root/nuclei-templates/panels -t /root/nuclei-templates/tokens -t /root/nuclei-templates/vulnerabilities -t /root/nuclei-templates/subdomain-takeover
 
 
 
