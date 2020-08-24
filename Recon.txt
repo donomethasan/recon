@@ -94,5 +94,10 @@ python3 /usr/local/bin/linkfinder.py -i https:// -o cli
  cd pathbrute ; ./pathBrute -s default -u http://target.com/ -v -i -n 20
 
 
+Nuclei+Subfinder:
+
+subfinder -d target.com -silent | httpx -silent | nuclei -t /root/nuclei-templates/{technologies,files,generic-detections,security-misconfiguration
+,panels,tokens,vulnerabilities,cves,subdomain-takeover} -v -o result
+
 
 
