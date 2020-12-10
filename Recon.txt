@@ -9,14 +9,9 @@ subfinder+httpx
 
 subfinder -d target.com > /root/recon/target.txt ; cat /root/recon/target.txt |  httpx -threads 100 > /root/recon/livetarget.txt
 
-
-shuffledns
-
-shuffledns -d target.com -w /root/wordlist/subdomains.txt -r /root/wordlist/resolvers.txt -o /root/recon/dnsoutput.txt
-
 Amass+httpx
 
-amass enum -brute -w /root/wordlist/subdomains.txt -d example.com|httpx -status-code -title
+amass enum -d example.com -norecursive -noalts |httpx -status-code -title
 
 httpx
 
