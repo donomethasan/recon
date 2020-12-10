@@ -7,11 +7,11 @@ subfinder
 
 subfinder+httpx
 
-subfinder -d target.com > /root/recon/target.txt ; cat /root/recon/target.txt |  httpx -threads 100 > /root/recon/livetarget.txt
+subfinder -d target.com > /root/recon/target.txt ; cat /root/recon/target.txt|httpx -threads 100 > /root/recon/livetarget.txt
 
 Amass+httpx
 
-amass enum -d example.com -norecursive -noalts |httpx -status-code -title
+amass enum -d example.com|httpx -status-code -title
 
 httpx
 
@@ -19,16 +19,9 @@ cat output.txt|httpx -status-code -content-length -title -store-response -thread
 
 echo 173.0.84.0/24 | httpx 
 
-Cname+A record Check
+Cname record Check
 
-cat /root/recon/domains.txt | dnsprobe
-
-dnsprobe -l /root/recon/domains.txt -r CNAME
-
-
-Screenshoot Taker:
-
-sudo webscreenshot -i /root/recon/livetarget.txt -o /root/screenshot/livetarget/
+subfinder -silent -d example.com|httpx|dnsx -silent -cname -resp
 
 
 Altdns:
