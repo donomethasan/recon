@@ -80,6 +80,17 @@ cd secretfinder ; python3 SecretFinder.py -i https://target.com/ -e -o cli
 python3 /usr/local/bin/linkfinder.py -i https:// -o cli
 
  cd pathbrute ; ./pathBrute -s default -u http://target.com/ -v -i -n 20
+ 
+ 
+ Gau+gf secret finder:
+ 
+ gau -subs [host] | cut -d"?" -f1 | grep -E "\.js(?:onp?)?$" | tee urls.txt
+ 
+ sort -u urls.txt | fff -s 200 -o out/
+ 
+ for i in `gf -list`; do [[ ${i} =~ "_secrets"* ]] && gf ${i}; done
+
+
 
 
 Nuclei+Subfinder:
